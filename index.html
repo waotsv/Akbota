@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteor 3.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .textcenter {
+            text-align: center;
+        }
+
+        #gamebox {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #777;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a class="link" href="https://codeforces.com/">codeforces</a>
+        <a class="link" href="#aboutme">About Me</a>
+    </nav>
+    <section id="aboutme" class="textcenter">
+        <div id="gamebox">
+            <h1>Meteor 3.0</h1>
+            <p>Enter your name:</p>
+            <input id="diasUberiTelefon" placeholder="Enter your name">
+            <button onclick="work()">Knopka</button>
+        </div>
+    </section>
+    <script>
+        function work() {
+            let input = document.getElementById("diasUberiTelefon");
+            let name = input.value;
+            let newText = document.createElement("h2");
+            newText.innerHTML = "Привет, " + name + "! В Алматы прилетел метеор, на котором сидел инопланетянин, твои действия:";
+            
+            let gamebox = document.getElementById("gamebox");
+            gamebox.appendChild(newText);
+
+            let userInput = document.createElement("input");
+            userInput.setAttribute("type", "text");
+            userInput.setAttribute("id", "userAction");
+            userInput.setAttribute("placeholder", "Enter your action");
+            gamebox.appendChild(userInput);
+
+            let continueButton = document.createElement("button");
+            continueButton.textContent = "Continue";
+            continueButton.onclick = processUserInput;
+            gamebox.appendChild(continueButton);
+        }
+
+        function processUserInput() {
+            let userAction = document.getElementById("userAction").value.trim().toLowerCase();
+            let gamebox = document.getElementById("gamebox");
+            let result = document.createElement("p");
+            result.innerHTML = "Молодец" + ".Ты сделал:" + userAction + ".Победа!!!";
+            gamebox.appendChild(result);
+        }
+    </script>
+</body>
+</html>
